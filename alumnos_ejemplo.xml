@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="alumnos.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<alumnos>
+    <alumno>
+        <email>segaega666@gmail.com</email>
+        <telefono>+34606701482</telefono>
+        <codigoPostal>41001</codigoPostal>
+        <nombreUsuario>ahnenerbe</nombreUsuario>
+        <contrasena>Segaega14</contrasena>
+    </alumno>
+    <alumno>
+        <email>segaega888@gmail.com</email>
+        <telefono>+34606131313</telefono>
+        <codigoPostal>28001</codigoPostal>
+        <nombreUsuario>endi_kayfman</nombreUsuario>
+        <contrasena>SeGaEgA131313114</contrasena>
+    </alumno>
+</alumnos>

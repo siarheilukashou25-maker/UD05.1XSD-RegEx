@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <!-- Email -->
+    <xs:simpleType name="tipoEmail">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+            <!-- El IDE no me deja poner validacion de email  RFC2822, dice que esta exprecion no es valida y no tiene soporte en esta. Asi que voy a dejar una muy simple -->
+            <xs:minLength value="5" />
+            <xs:maxLength value="254" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Telefono -->
+    <xs:simpleType name="tipoTelefono">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\+?34)?(6[0-9]{2}|7[1-9][0-9]{1}|[89][0-9]{2})[0-9]{6}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Codigo postal -->
+    <xs:simpleType name="tipoCodigoPostal">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(0[1-9]|[1-4][0-9]|5[0-2])[0-9]{3}" />
+            <xs:length value="5" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Nombre de usuario -->
+    <xs:simpleType name="tipoNombreUsuario">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]([a-zA-Z0-9]|[_.-][a-zA-Z0-9]){1,18}[a-zA-Z0-9]" />
+            <xs:minLength value="3" />
+            <xs:maxLength value="20" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Contrasena -->
+    <xs:simpleType name="tipoContrasena">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\w{8,16}" />
+            <xs:minLength value="8" />
+            <xs:maxLength value="16" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="alumnos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumno"
+                            type="tipoAlumno"
+                            maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="tipoAlumno">
+        <xs:sequence>
+            <xs:element name="email"
+                        type="tipoEmail" />
+            <xs:element name="telefono"
+                        type="tipoTelefono" />
+            <xs:element name="codigoPostal"
+                        type="tipoCodigoPostal" />
+            <xs:element name="nombreUsuario"
+                        type="tipoNombreUsuario" />
+            <xs:element name="contrasena"
+                        type="tipoContrasena" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
